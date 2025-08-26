@@ -164,7 +164,6 @@ SigninLogs
 azure-security-architecture/
 ├── docs/
 │   ├── architecture/          # Network diagrams and design documents
-│   └── domains/              # Domain-specific implementation guides
 ├── scripts/
 │   ├── domain-1-identity/    # PowerShell scripts for identity management
 │   ├── domain-2-network/     # Network and VM deployment scripts
