@@ -4,8 +4,11 @@
 Scripts for multi-tier network architecture with defense-in-depth security controls using Virtual Networks and Network Security Groups.
 
 ## Network Architecture
-Internet → [Web Tier] → [App Tier] → [Database Tier]
-        10.0.1.0/24     10.0.2.0/24   10.0.3.0/24
+Internet
+    ↓
+[Web Tier] → [App Tier] → [Database Tier]
+    ↓             ↓             ↓
+10.0.1.0/24   10.0.2.0/24   10.0.3.0/24
 
 ## Scripts
 
@@ -28,22 +31,22 @@ Creates Network Security Groups with defense-in-depth rules for each tier.
 **Security Rules by Tier:**
 **Web Tier NSG:**
 
-Allow HTTP (80) from Internet
-Allow HTTPS (443) from Internet
-Allow SSH (22) from Corporate Network only
-Deny all other inbound traffic
+- Allow HTTP (80) from Internet
+- Allow HTTPS (443) from Internet
+- Allow SSH (22) from Corporate Network only
+- Deny all other inbound traffic
 
 **App Tier NSG:**
 
-Allow HTTP (8080) from Web Subnet only
-Allow SSH (22) from Corporate Network only
-Deny all other inbound traffic
+- Allow HTTP (8080) from Web Subnet only
+- Allow SSH (22) from Corporate Network only
+- Deny all other inbound traffic
 
 **Database Tier NSG:**
 
-Allow SQL (1433) from App Subnet only
-Allow SSH (22) from Corporate Network only
-Deny all other inbound traffic
+- Allow SQL (1433) from App Subnet only
+- Allow SSH (22) from Corporate Network only
+- Deny all other inbound traffic
 
 **Usage:**
 ```powershell
@@ -54,9 +57,9 @@ Deny all other inbound traffic
 Associates Network Security Groups with their respective subnets.
 
 **Associations:**
-`nsg-web-subnet` → WebSubnet
-`nsg-app-subnet` → AppSubnet
-`nsg-database-subnet` → DatabaseSubnet
+- `nsg-web-subnet` → WebSubnet
+- `nsg-app-subnet` → AppSubnet
+- `nsg-database-subnet` → DatabaseSubnet
 
 **Usage:**
 ```powershell
@@ -65,10 +68,10 @@ Associates Network Security Groups with their respective subnets.
 
 ## Security Features
 
-**Network Segmentation:** Prevents lateral movement between tiers
-**Defense in Depth:** Multiple security layers protect sensitive data
-**Principle of Least Privilege:** Each tier only allows necessary traffic
-**Corporate Access Control:** Management access restricted to known IP ranges
+- **Network Segmentation:** Prevents lateral movement between tiers
+- **Defense in Depth:** Multiple security layers protect sensitive data
+- **Principle of Least Privilege:** Each tier only allows necessary traffic
+- **Corporate Access Control:** Management access restricted to known IP ranges
 
 ## Traffic Flow Validation
 Expected traffic patterns:
@@ -81,9 +84,9 @@ Expected traffic patterns:
 - ❌ Cross-tier unauthorized traffic (BLOCKED)
 
 ## Compliance Alignment
-**PCI-DSS:** Network segmentation requirements
-**Zero Trust:** Explicit verification of all network traffic
-**Enterprise Standards:** Multi-tier architecture best practices
+- **PCI-DSS:** Network segmentation requirements
+- **Zero Trust:** Explicit verification of all network traffic
+- **Enterprise Standards:** Multi-tier architecture best practices
 
 ## Prerequisites
 - Azure PowerShell module: `Install-Module Az`

@@ -25,6 +25,7 @@ Creates enterprise test users and security groups for realistic Azure security s
 **Usage:**
 ```powershell
 .\01-create-users-groups.ps1
+```
 
 ### 02-assign-group-memberships.ps1
 Assigns users to appropriate security groups based on enterprise role structure.
@@ -39,6 +40,7 @@ Assigns users to appropriate security groups based on enterprise role structure.
 **Usage:**
 ```powershell
 .\02-assign-group-memberships.ps1
+```
 
 ## Prerequisites
 - Azure AD PowerShell module: `Install-Module AzureAD`
