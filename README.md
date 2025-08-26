@@ -96,6 +96,7 @@ Set-AzVMDiskEncryptionExtension -ResourceGroupName $resourceGroup -VMName "vm-db
 
 # Time-limited SAS token for contractor access
 New-AzStorageAccountSASToken -Context $ctx -ExpiryTime (Get-Date).AddHours(2) -Permissions "rw" -Service Blob -ResourceType Container
+```
 
 // Detect excessive failed login attempts
 SecurityEvent
@@ -184,17 +185,18 @@ azure-security-architecture/
    ```bash
    git clone https://github.com/[your-username]/azure-security-architecture.git
    cd azure-security-architecture
-
+   ```
 2. **Install required PowerShell modules**
     ```powershell
     Install-Module -Name Az -Force -AllowClobber
     Install-Module -Name AzureAD -Force
-
+   ```
 3. **Connect to Azure**
     ```powershell
     Connect-AzAccount
     Connect-AzureAD
-
+   ```
+   
 4. **Deploy by domain (recommended approach)**
     ```powershell
     # Start with Domain 1 - Identity foundation
@@ -204,6 +206,8 @@ azure-security-architecture/
     .\scripts\domain-2-network\01-create-network-architecture.ps1
 
     # Proceed through remaining domains sequentially
+   ```
+
 
 ## Cost Considerations
 - **Estimated Cost**: $50-100 for complete implementation
@@ -212,9 +216,9 @@ azure-security-architecture/
     - Select appropriate VM sizes (B-series for basic testing)
     - Monitor spending with Azure Cost Management
 
+
 ## Project Context
 This project was developed as part of comprehensive AZ-500 (Azure Security Technologies) exam preparation, demonstrating practical implementation of all four certification domains:
-
 - **Domain 1**: Identity and Access Management (15-20%)
 - **Domain 2**: Platform Protection (20-25%)
 - **Domain 3**: Data and Application Security (20-25%)
@@ -222,15 +226,15 @@ This project was developed as part of comprehensive AZ-500 (Azure Security Techn
 
 The implementation goes beyond basic certification requirements to demonstrate enterprise-level security architecture and operational capabilities.
 
+
 ## Contributing
 While this is a personal learning project, feedback and suggestions are welcome:
-
 - **Issues**: Report bugs or suggest improvements via GitHub Issues
 - **Questions**: Technical questions about implementation details
 - **Enhancements**: Suggestions for additional security controls or optimizations
 
-## Contact & Professional Profile
 
+## Contact & Professional Profile
 - **LinkedIn**: [LinkedIn Profile]
 - **Portfolio Website**: [Portfolio URL]
 - **Email**: [Professional Email]
