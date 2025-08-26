@@ -168,3 +168,77 @@ azure-security-architecture/
 │   ├── domain-3-security/    # Key Vault and encryption automation
 │   └── domain-4-operations/  # Sentinel and KQL query examples
 └── README.md                 # This file
+
+
+
+## Getting Started
+
+### Prerequisites
+- Azure subscription with sufficient credits ($80+ recommended)
+- PowerShell 5.1 or later with Az modules installed
+- Azure CLI (optional, for alternative deployment methods)
+- Basic understanding of Azure networking and identity concepts
+
+### Quick Deployment
+1. **Clone this repository**
+   ```bash
+   git clone https://github.com/[your-username]/azure-security-architecture.git
+   cd azure-security-architecture
+
+2. **Install required PowerShell modules**
+    ```powershell
+    Install-Module -Name Az -Force -AllowClobber
+    Install-Module -Name AzureAD -Force
+
+3. **Connect to Azure**
+    ```powershell
+    Connect-AzAccount
+    Connect-AzureAD
+
+4. **Deploy by domain (recommended approach)**
+    ```powershell
+    # Start with Domain 1 - Identity foundation
+    .\scripts\domain-1-identity\01-create-users-groups.ps1
+
+    # Continue with Domain 2 - Network infrastructure  
+    .\scripts\domain-2-network\01-create-network-architecture.ps1
+
+    # Proceed through remaining domains sequentially
+
+## Cost Considerations
+- **Estimated Cost**: $50-100 for complete implementation
+- **Cost-Saving Tips**:
+    - Use auto-shutdown for VMs during non-testing hours
+    - Select appropriate VM sizes (B-series for basic testing)
+    - Monitor spending with Azure Cost Management
+
+## Project Context
+This project was developed as part of comprehensive AZ-500 (Azure Security Technologies) exam preparation, demonstrating practical implementation of all four certification domains:
+
+- **Domain 1**: Identity and Access Management (15-20%)
+- **Domain 2**: Platform Protection (20-25%)
+- **Domain 3**: Data and Application Security (20-25%)
+- **Domain 4**: Security Operations (30-35%)
+
+The implementation goes beyond basic certification requirements to demonstrate enterprise-level security architecture and operational capabilities.
+
+## Contributing
+While this is a personal learning project, feedback and suggestions are welcome:
+
+- **Issues**: Report bugs or suggest improvements via GitHub Issues
+- **Questions**: Technical questions about implementation details
+- **Enhancements**: Suggestions for additional security controls or optimizations
+
+## Contact & Professional Profile
+
+- **LinkedIn**: [LinkedIn Profile]
+- **Portfolio Website**: [Portfolio URL]
+- **Email**: [Professional Email]
+
+**Professional Context**: This project demonstrates hands-on Azure security expertise developed during career transition from QA Automation Engineer to Cloud Security Professional.
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+⭐ **If this project helped you understand Azure security implementation, please give it a star!**
+*Built with enterprise security principles and cost-conscious design. Ready for production deployment with appropriate customization for your environment.*
