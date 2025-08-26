@@ -8,6 +8,7 @@ Enterprise-grade Azure security implementation spanning four critical domains: I
 
 **Key Achievement:** Complete multi-domain security architecture deployed for under $80, equivalent to $50,000+ enterprise consulting engagement.
 
+
 ## Implementation Details
 
 ### 🔐 Domain 1: Identity & Access Management
@@ -54,3 +55,58 @@ Enterprise-grade Azure security implementation spanning four critical domains: I
 - **Data Connector Architecture** for multi-service log aggregation
 
 **Operational Capability:** Sub-minute threat detection with automated alert generation
+
+
+## Key Features
+
+✅ **Zero-Trust Architecture** - Explicit verification at every access point  
+✅ **Defense in Depth** - Multiple security layers preventing single points of failure  
+✅ **Cost-Optimized Design** - Enterprise security within $80 budget  
+✅ **Automated Threat Detection** - Real-time security monitoring with Sentinel  
+✅ **Cross-Domain Integration** - Identity, network, compute, and operations working together  
+✅ **Professional Troubleshooting** - Complex RBAC and network security issue resolution  
+✅ **Compliance Ready** - PCI-DSS network segmentation and data protection standards  
+
+## Technologies Used
+
+![Azure](https://img.shields.io/badge/Azure-0078D4?style=flat&logo=microsoft-azure&logoColor=white)
+![PowerShell](https://img.shields.io/badge/PowerShell-5391FE?style=flat&logo=powershell&logoColor=white)
+![Azure Key Vault](https://img.shields.io/badge/Azure%20Key%20Vault-0078D4?style=flat&logo=microsoft-azure&logoColor=white)
+![Microsoft Sentinel](https://img.shields.io/badge/Microsoft%20Sentinel-0078D4?style=flat&logo=microsoft&logoColor=white)
+![Azure Active Directory](https://img.shields.io/badge/Azure%20AD-0078D4?style=flat&logo=microsoft-azure&logoColor=white)
+![Network Security](https://img.shields.io/badge/Network%20Security-FF6B35?style=flat&logo=security&logoColor=white)
+![BitLocker](https://img.shields.io/badge/BitLocker-00BCF2?style=flat&logo=windows&logoColor=white)
+![KQL](https://img.shields.io/badge/KQL-0078D4?style=flat&logo=microsoft&logoColor=white)
+
+## Code Examples
+
+### Multi-Tier Network Deployment
+```powershell
+# Create secure VNet with three-tier architecture
+New-AzVirtualNetwork -ResourceGroupName "rg-az500-network" -Location "East US" -Name "vnet-az500-multitier" -AddressPrefix "10.0.0.0/16"
+
+# NSG rule for web tier security
+New-AzNetworkSecurityRuleConfig -Name "Allow-HTTP-Internet" -Protocol Tcp -Direction Inbound -Priority 1000 -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 80 -Access Allow
+
+# Deploy Key Vault with enterprise security features
+New-AzKeyVault -VaultName $kvName -ResourceGroupName $resourceGroup -Location "East US" -EnabledForDiskEncryption -EnableSoftDelete -EnablePurgeProtection
+
+# VM disk encryption using customer-managed keys
+Set-AzVMDiskEncryptionExtension -ResourceGroupName $resourceGroup -VMName "vm-db-01" -DiskEncryptionKeyVaultUrl $vault.VaultUri -DiskEncryptionKeyVaultId $vault.ResourceId -VolumeType All
+
+# Time-limited SAS token for contractor access
+New-AzStorageAccountSASToken -Context $ctx -ExpiryTime (Get-Date).AddHours(2) -Permissions "rw" -Service Blob -ResourceType Container
+
+// Detect excessive failed login attempts
+SecurityEvent
+| where EventID == 4625
+| where TimeGenerated > ago(24h)
+| summarize count() by Account, Computer
+| where count_ > 10
+| order by count_ desc
+
+// Monitor privileged account activity
+SigninLogs
+| where UserPrincipalName has "admin"
+| where TimeGenerated > ago(7d)
+| summarize count() by UserPrincipalName, Location
