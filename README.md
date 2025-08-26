@@ -98,6 +98,7 @@ Set-AzVMDiskEncryptionExtension -ResourceGroupName $resourceGroup -VMName "vm-db
 New-AzStorageAccountSASToken -Context $ctx -ExpiryTime (Get-Date).AddHours(2) -Permissions "rw" -Service Blob -ResourceType Container
 ```
 
+``` KQL 
 // Detect excessive failed login attempts
 SecurityEvent
 | where EventID == 4625
@@ -111,7 +112,7 @@ SigninLogs
 | where UserPrincipalName has "admin"
 | where TimeGenerated > ago(7d)
 | summarize count() by UserPrincipalName, Location
-
+```
 
 
 ## Results & Metrics
@@ -159,6 +160,7 @@ SigninLogs
 
 
 ## Repository Structure
+```
 azure-security-architecture/
 ├── docs/
 │   ├── architecture/          # Network diagrams and design documents
@@ -169,7 +171,7 @@ azure-security-architecture/
 │   ├── domain-3-security/    # Key Vault and encryption automation
 │   └── domain-4-operations/  # Sentinel and KQL query examples
 └── README.md                 # This file
-
+```
 
 
 ## Getting Started
