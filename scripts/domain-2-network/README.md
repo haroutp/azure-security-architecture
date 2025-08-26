@@ -4,11 +4,6 @@
 Scripts for multi-tier network architecture with defense-in-depth security controls using Virtual Networks and Network Security Groups.
 
 ## Network Architecture
-┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐
-│  Internet   │───▶│  Web Tier   │───▶│  App Tier   │───▶│Database Tier│
-│             │    │10.0.1.0/24  │    │10.0.2.0/24  │    │10.0.3.0/24  │
-└─────────────┘    └─────────────┘    └─────────────┘    └─────────────┘
-
 | Layer | Subnet | Access |
 |-------|--------|---------|
 | Internet → Web Tier | 10.0.1.0/24 | Public |
